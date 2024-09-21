@@ -1,0 +1,63 @@
+/* src/components/UserTable.css */
+.user-table-container {
+    max-width: 800px; /* Limit the width of the container */
+    margin: 20px auto; /* Center the container */
+    padding: 20px;
+    background: white; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.loading,
+.error {
+    text-align: center;
+    color: #333;
+    font-size: 1.2em;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.user-table th,
+.user-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.user-table th {
+    background-color: #4CAF50; /* Header background color */
+    color: white; /* Header text color */
+}
+
+.user-table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Zebra striping */
+}
+
+.user-table tr:hover {
+    background-color: #ddd; /* Hover effect */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .user-table th,
+    .user-table td {
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .user-table th,
+    .user-table td {
+        display: block; /* Stack table cells */
+        width: 100%; /* Full width for mobile */
+        box-sizing: border-box; /* Include padding in width */
+    }
+
+    .user-table tr {
+        margin-bottom: 15px; /* Space between rows */
+    }
+}

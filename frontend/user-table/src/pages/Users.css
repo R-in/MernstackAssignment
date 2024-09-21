@@ -1,0 +1,80 @@
+/* src/pages/Users.css */
+.users-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #f4f4f4; /* Light background */
+    color: #333; /* Dark text */
+    min-height: 100vh; /* Full height */
+}
+
+.users-title {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+}
+
+.users-description {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* User Table Styles */
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.user-table th,
+.user-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.user-table th {
+    background-color: #4CAF50; /* Header background color */
+    color: white; /* Header text color */
+}
+
+.user-table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Zebra striping */
+}
+
+.user-table tr:hover {
+    background-color: #ddd; /* Hover effect */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .users-title {
+        font-size: 2em; /* Smaller title on tablets */
+    }
+
+    .users-description {
+        font-size: 1em; /* Smaller description on tablets */
+    }
+
+    .user-table th,
+    .user-table td {
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .users-title {
+        font-size: 1.5em; /* Even smaller title on mobile */
+    }
+
+    .users-description {
+        font-size: 0.9em; /* Even smaller description on mobile */
+    }
+
+    .user-table {
+        font-size: 0.9em; /* Adjust table font size */
+    }
+}
