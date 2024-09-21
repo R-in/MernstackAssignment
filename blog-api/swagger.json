@@ -1,0 +1,201 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Post API",
+      "description": "API for managing posts",
+      "version": "1.0.0"
+    },
+    "host": "localhost:8000",
+    "basePath": "/",
+    "paths": {
+      "/posts": {
+        "post": {
+          "summary": "Create a new post",
+          "consumes": ["application/json"],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "post",
+              "description": "Post object",
+              "schema": {
+                "type": "object",
+                "required": ["title", "content", "author"],
+                "properties": {
+                  "title": {"type": "string"},
+                  "content": {"type": "string"},
+                  "author": {"type": "string"}
+                }
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Post created",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "_id": {"type": "string"},
+                  "title": {"type": "string"},
+                  "content": {"type": "string"},
+                  "author": {"type": "string"}
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {"type": "string"}
+                }
+              }
+            }
+          }
+        },
+        "get": {
+          "summary": "Get all posts",
+          "responses": {
+            "200": {
+              "description": "Posts list",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "_id": {"type": "string"},
+                    "title": {"type": "string"},
+                    "content": {"type": "string"},
+                    "author": {"type": "string"}
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Internal server error",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {"type": "string"}
+                }
+              }
+            }
+          }
+        }
+      },
+      "/posts/{id}": {
+        "get": {
+          "summary": "Get a post by ID",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Post found",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "_id": {"type": "string"},
+                  "title": {"type": "string"},
+                  "content": {"type": "string"},
+                  "author": {"type": "string"}
+                }
+              }
+            },
+            "404": {
+              "description": "Post not found",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {"type": "string"}
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "summary": "Update a post by ID",
+          "consumes": ["application/json"],
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "in": "body",
+              "name": "post",
+              "description": "Post object",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {"type": "string"},
+                  "content": {"type": "string"},
+                  "author": {"type": "string"}
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Post updated",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "_id": {"type": "string"},
+                  "title": {"type": "string"},
+                  "content": {"type": "string"},
+                  "author": {"type": "string"}
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {"type": "string"}
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "summary": "Delete a post by ID",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Post deleted",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {"type": "string"}
+                }
+              }
+            },
+            "404": {
+              "description": "Post not found",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {"type": "string"}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

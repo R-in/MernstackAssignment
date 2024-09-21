@@ -4,11 +4,16 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const Post = require('./Post');
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+
 const app = express();
 const port = 8000;
 
 app.use(cors());
 app.use(bodyParser.json());
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Create a new post
 app.post('/posts', async (req, res) => {
