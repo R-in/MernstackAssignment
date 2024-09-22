@@ -644,9 +644,160 @@ To set up a basic CI/CD pipeline using GitHub Actions to automatically test and 
      ```
   6. The CI/CD pipeline will automatically run when changes are pushed to the repository, testing and deploying the Node.js application to production.
 
-   
+Data Analysis  in Python
+=========================
+
+This project performs data cleaning, manipulation, visualization, and descriptive statistics on a dataset.
+
+## 1. Install Required Software
+   * **Python**: Make sure you have Python installed on your machine. You can download it from python.org. I already have Python 3.10.3 in my system.
+     
+## 2. Create a New Folder 
+   data_analysis
+
+## 3. Set Up a Virtual Environment
+   Open the integrated terminal in VS Code (View > Terminal) and run:
+      
+      ``` 
+         python -m venv venv
+         # Activate the virtual environment
+         # On Windows
+         .\venv\Scripts\activate
+         # On macOS/Linux
+         source venv/bin/activate
+      ```
+      
+## 4. Install Required Packages
+   Install the required packages using pip:
+      ```pip install pandas matplotlib numpy```
+      
+## 5. Create Python Scripts
+   Create the following Python files in my project folder (data_analysis):
+   * ```dada_cleaning.py```
+   * ```data_manipulation.py```
+   * ```data_visualization.py```
+   * ```descriptive_statistics```
+
+## Code Snippet
+
+   1. Data Cleaning: ```data_cleaning.py```.
+
+      The `clean_data` function reads a CSV file, drops rows with missing values,       and outputs the cleaned data to a new CSV file.
 
 
+      ```
+         import pandas as pd
+
+         def clean_data(file_path):
+             # Read CSV file
+             df = pd.read_csv(file_path)
+         
+             # Drop rows with missing values
+             cleaned_df = df.dropna()
+         
+             # Output the cleaned data
+             cleaned_df.to_csv('cleaned_data.csv', index=False)
+             print("Cleaned data saved to 'cleaned_data.csv'.")
+         
+         if __name__ == "__main__":
+             clean_data('my_data.csv')  # Replace with your CSV file name
+      ```
+   3. Data Manipulation: ```data_manipulation.py```.
+
+      The `get_top_rows` function takes a DataFrame and returns the top 5 rows          where a specific column (e.g., "age") has values greater than 30.
+
+
+      ```
+         import pandas as pd
+
+         def filter_age_over_30(df):
+             # Return top 5 rows where age > 30
+             filtered_df = df[df['age'] > 30]  # Replace 'age' with your column 
+             name
+             return filtered_df.head(5)
+         
+         if __name__ == "__main__":
+             df = pd.read_csv('cleaned_data.csv')  # Use cleaned data
+             print(filter_age_over_30(df))
+      ```
+   4. Data Visualization: ```data_visualization.py```.
+
+      The `plot_age_distribution` function creates a bar chart using Matplotlib         to visualize the distribution of user ages from the dataset.
+
+
+      ```
+         import pandas as pd
+         import matplotlib.pyplot as plt
+         
+         def visualize_age_distribution(file_path):
+             # Read CSV file
+             df = pd.read_csv(file_path)
+         
+             # Create a bar chart for age distribution
+             plt.figure(figsize=(10, 6))
+             df['age'].value_counts().sort_index().plot(kind='bar')  # Replace                 'age' with your column name
+             plt.title('Age Distribution')
+             plt.xlabel('Age')
+             plt.ylabel('Frequency')
+             plt.xticks(rotation=0)
+             plt.grid(axis='y')
+         
+             # Show plot
+             plt.savefig('age_distribution.png')
+             plt.show()
+         
+         if __name__ == "__main__":
+             visualize_age_distribution('cleaned_data.csv')  # Use cleaned data
+
+      ```
+
+   5. Descriptive Statistics: ```descriptive_statistics.py```.
+      
+      The `calculate_stats` function calculates the mean, median, and standard          deviation of a column (e.g., "age") in the dataset using NumPy and Pandas.
+
+
+      ```
+         import pandas as pd
+         import numpy as np
+         
+         def calculate_statistics(file_path):
+             # Read CSV file
+             df = pd.read_csv(file_path)
+         
+             # Calculate mean, median, and standard deviation for the 'age' column
+             mean_age = np.mean(df['age'])  # Replace 'age' with your column name
+             median_age = np.median(df['age'])
+             std_dev_age = np.std(df['age'])
+         
+             print(f"Mean Age: {mean_age}")
+             print(f"Median Age: {median_age}")
+             print(f"Standard Deviation of Age: {std_dev_age}")
+         
+         if __name__ == "__main__":
+             calculate_statistics('cleaned_data.csv')  # Use cleaned data
+      ```
+  ## 6. For Running the Scripts
+
+   1.  Ensure your data file (e.g., ```my_data.csv```) is in the same directory          as your scripts.
+   2.  Run the scripts in the terminal:
+
+      ```
+         # Clean the data
+         python data_cleaning.py
+         
+         # Filter data for ages over 30
+         python data_manipulation.py
+         
+         # Visualize age distribution
+         python data_visualization.py
+         
+         # Calculate descriptive statistics
+         python descriptive_statistics.py
+
+      ```
+**License**
+
+This project is licensed under the MIT License. See `LICENSE` for details.
 
 
 
