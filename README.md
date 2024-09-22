@@ -647,6 +647,14 @@ To set up a basic CI/CD pipeline using GitHub Actions to automatically test and 
 Data Analysis  in Python
 =========================
 
+## Table of Contents for Python for Data Analysis
+
+17. [Data_Cleaning](#data_cleaning)
+18. [Data_Manipulation](#data_manipulation)
+19. [Data_Visualization](#data_visualization)
+20. [Descriptive_Statistics](#descriptive_statistics)
+
+
 This project performs data cleaning, manipulation, visualization, and descriptive statistics on a dataset.
 
 ## 1. Install Required Software
